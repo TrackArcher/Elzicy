@@ -5,18 +5,19 @@ import hashlib
 import random
 import string
 import time
+import os
 from fastapi import FastAPI, HTTPException, Header
 from sse_starlette.sse import EventSourceResponse
 import uvicorn
 
 # --- NAVIDROME CONFIGURATION ---
-NAVIDROME_URL = ""
-USERNAME = ""
-PASSWORD = ""
+NAVIDROME_URL = os.getenv("NAVIDROME_URL", "")
+USERNAME = os.getenv("USERNAME", "")
+PASSWORD = os.getenv("PASSWORD", "")
 
 # --- SECURITY CONFIGURATION ---
 # The custom header token your Android app will need to send
-SHARED_SECRET_TOKEN = ""
+SHARED_SECRET_TOKEN = os.getenv("SHARED_SECRET_TOKEN", "")
 
 # --- GLOBAL TRACK HISTORY STORAGE ---
 # Structure: {"Station Name": ["Song 1", "Song 2", ...]}
