@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  radioscraper:
+    build: .
+    container_name: radioscraper
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # If you want to pass environment variables securely instead of hardcoding them in main.py, you can use:
+    # environment:
+    #   - NAVIDROME_URL=http://your-navidrome-ip:4533
+    #   - USERNAME=your_user
+    #   - PASSWORD=your_pass
+    #   - SHARED_SECRET_TOKEN=your_token
